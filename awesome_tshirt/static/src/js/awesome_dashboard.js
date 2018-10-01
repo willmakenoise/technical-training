@@ -1,7 +1,7 @@
 odoo.define('awesome_tshirt.dashboard', function(require) {
     var AbstractAction = require('web.AbstractAction');
     var core = require('web.core');
-    var Stats = require('awesome_tshirt.Stats');
+    var fieldUtils = require('web.field_utils');
     var _t = core._t;
     // var MyCounter = require('awesome_tshirt.MyCounter');
 
@@ -13,10 +13,16 @@ odoo.define('awesome_tshirt.dashboard', function(require) {
             'click .o_cancelled_orders_btn': '_onOpenCancelledOrders',
         },
 
-        start: function () {
-            stats = new Stats(this);
-            statsDef = stats.appendTo(this.$el);
-            return $.when(statsDef);
+        willStart: function () {
+            var self = this;
+            var statsDef = this._rpc({
+                route: '/awesome_tshirt/statistics',
+            }).then(function (stats) {
+                stats.average_time = fieldUtils.format.float_time(stats.average_time);
+                self.stats = stats;
+            });
+            var superDef = this._super.apply(this, arguments);
+            return $.when(statsDef, superDef);
         },
 
         // Private

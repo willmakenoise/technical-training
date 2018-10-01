@@ -21,6 +21,5 @@
     'qweb': [
         'static/src/xml/widget_counter.xml',
         'static/src/xml/awesome_dashboard.xml',
-        'static/src/xml/widget_stats.xml',
     ],
 }
