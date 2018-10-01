@@ -1,6 +1,4 @@
 odoo.define('awesome_tshirt.dashboard', function(require) {
-    // var Widget = require('web.Widget');
-
     var AbstractAction = require('web.AbstractAction');
     var core = require('web.core');
     var MyCounter = require('awesome_tshirt.MyCounter');
