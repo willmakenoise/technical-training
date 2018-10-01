@@ -1,6 +1,7 @@
 odoo.define('awesome_tshirt.dashboard', function(require) {
     var AbstractAction = require('web.AbstractAction');
     var core = require('web.core');
+    var Stats = require('awesome_tshirt.Stats');
     var _t = core._t;
     // var MyCounter = require('awesome_tshirt.MyCounter');
 
@@ -10,6 +11,12 @@ odoo.define('awesome_tshirt.dashboard', function(require) {
             'click .o_new_orders_btn': '_onOpenNewOrders',
             'click .o_customers_btn': '_onOpenCustomers',
             'click .o_cancelled_orders_btn': '_onOpenCancelledOrders',
+        },
+
+        start: function () {
+            stats = new Stats(this);
+            statsDef = stats.appendTo(this.$el);
+            return $.when(statsDef);
         },
 
         // Private
