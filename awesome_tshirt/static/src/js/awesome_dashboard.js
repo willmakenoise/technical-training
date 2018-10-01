@@ -8,7 +8,7 @@ odoo.define('awesome_tshirt.dashboard', function(require) {
             var myCounter = new MyCounter(this, 0);
             var counterDef = myCounter.appendTo(this.$el);
             var superDef = this._super.apply(this, arguments);
-            return $.when(counterDef, superDef)
+            return $.when(counterDef, superDef);
         },
     });
 
