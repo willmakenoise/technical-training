@@ -54,7 +54,7 @@ odoo.define('awesome_tshirt.dashboard', function(require) {
         /**
         * @private
         */
-        _openNewOrders: function () {
+        _onOpenNewOrders: function () {
             this._openLastWeekOrders({
                 name: _t('New Orders'),
                 domain: [['state', '=', 'new']],
