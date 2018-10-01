@@ -3,8 +3,8 @@
 <templates xml:space="preserve">
     <t t-name="widget_mycounter">
         <div>
-            <button id="btn_minus">-</button>
-            <button id="btn_plus">+</button>
+            <button class="minus">-</button>
+            <button class="plus">+</button>
             <span id="count" class="count">0</span>
         </div>
     </t>
