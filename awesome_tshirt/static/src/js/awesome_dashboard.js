@@ -24,7 +24,7 @@ odoo.define('awesome_tshirt.dashboard', function(require) {
         * @returns {Promise} resolved when the action is executed
         */
         _openLastWeekOrders: function (params) {
-            var weekAgo = moment().subtract(7, 'd').locale('en').format('YYYY-MM-DD HH:mm:ss');
+            var aWeekAgo = moment().subtract(7, 'd').locale('en').format('YYYY-MM-DD HH:mm:ss');
             this.do_action({
                 name: params.name,
                 res_model: 'awesome_tshirt.order',
