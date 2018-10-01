@@ -1,0 +1,11 @@
+<odoo>
+    <templates>
+        <t t-name="widget_mycounter">
+            <div>
+                <button id="btn_minus">-</button>
+                <button id="btn_plus">+</button>
+                <span id="count" class="count">0</span>
+            </div>
+        </t>
+    </templates>
+</odoo>
