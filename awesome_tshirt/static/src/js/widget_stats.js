@@ -8,7 +8,7 @@ odoo.define('awesome_tshirt.Stats', function(require) {
         },
 
         willStart: function () {
-            data = fetchDashboardData();
+            data = this.fetchDashboardData();
             console.log(data);
             return data;
         },
