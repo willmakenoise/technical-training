@@ -4,7 +4,7 @@ odoo.define('awesome_tshirt.MyCounter', function(require) {
     var MyCounter = Widget.extend({
         template: 'widget_mycounter',
         events: {
-            'click button.plus': '_onClick',
+            'click button.o_increment': '_onClick',
         },
         init: function (parent, value) {
             this._super(parent);
@@ -12,7 +12,8 @@ odoo.define('awesome_tshirt.MyCounter', function(require) {
         },
         _onClick: function (e) {
             this.count++;
-            this.$('.count').text(this.count);
+            // this.$('.count').text(this.count);
+            this.renderElement();
         }
     });
 

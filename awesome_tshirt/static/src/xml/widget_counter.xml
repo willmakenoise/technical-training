@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <templates xml:space="preserve">
-    <t t-name="widget_mycounter">
-        <div>
-            <button class="minus">-</button>
-            <button class="plus">+</button>
-            <span id="count" class="count">0</span>
-        </div>
-    </t>
+    <div t-name="widget_mycounter">
+        <button class="btn btn-icon fa fa-minus o_decrement"/>
+        <span><t t-esc="widget.value"/></span>
+        <button class="btn btn-icon fa fa-plus o_increment"/>
+    </div>
 </templates>

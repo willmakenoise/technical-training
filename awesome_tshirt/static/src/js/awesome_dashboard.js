@@ -7,10 +7,10 @@ odoo.define('awesome_tshirt.dashboard', function(require) {
 
     var Dashboard = AbstractAction.extend({
         start: function () {
-            // this.$el.html('Hello world');
-            counter = new MyCounter(this, 0);
-            counter.appendTo(".o_content");
-            return this._super.apply(this, arguments);
+            var myCounter = new MyCounter(this, 0);
+            var counterDef = myCounter.appendTo(this.$el);
+            var superDef = this._super.apply(this, arguments);
+            return $.when(counterDef, superDef)
         },
     });
 
