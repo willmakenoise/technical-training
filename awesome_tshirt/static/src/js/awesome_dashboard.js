@@ -5,6 +5,7 @@ odoo.define('awesome_tshirt.dashboard', function(require) {
     var core = require('web.core');
     var fieldUtils = require('web.field_utils');
     var _t = core._t;
+    var qweb = core.qweb;
     // var MyCounter = require('awesome_tshirt.MyCounter');
 
     var Dashboard = AbstractAction.extend(ControlPanelMixin, {
