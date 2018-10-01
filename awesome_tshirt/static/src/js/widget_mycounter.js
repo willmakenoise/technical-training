@@ -16,5 +16,7 @@ odoo.define('awesome_tshirt.MyCounter', function(require) {
         }
     });
 
+    return MyCounter;
+
 
 });
