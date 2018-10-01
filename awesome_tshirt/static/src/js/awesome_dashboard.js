@@ -1,12 +1,13 @@
 odoo.define('awesome_tshirt.dashboard', function(require) {
     var ChartWidget = require('awesome_tshirt.ChartWidget');
     var AbstractAction = require('web.AbstractAction');
+    var ControlPanelMixin = require('web.ControlPanelMixin');
     var core = require('web.core');
     var fieldUtils = require('web.field_utils');
     var _t = core._t;
     // var MyCounter = require('awesome_tshirt.MyCounter');
 
-    var Dashboard = AbstractAction.extend({
+    var Dashboard = AbstractAction.extend(ControlPanelMixin, {
         template: 'AwesomeDashboard',
         jsLibs: [
             '/awesome_tshirt/static/lib/chart.js/Chart.js',
@@ -38,7 +39,31 @@ odoo.define('awesome_tshirt.dashboard', function(require) {
         start: function () {
             var chartDef = this._renderChart();
             var superDef = this._super.apply(this, arguments);
-            return $.when(chartDef, superDef);
+            this._renderButtons();
+            return $.when(chartDef, superDef).then(this._updateControlPanel.bind(this));
+        },
+        /**
+         * Override to unbind handlers on this.$buttons. This must be done because
+         * the buttons are not appended inside the widget (as they are in the
+         * ControlPanel, that attaches/detaches elements in its areas). So the
+         * handlers aren't unbound automatically when this widget is destroyed.
+         *
+         * @override
+         */
+        destroy: function () {
+            this._super.apply(this, arguments);
+            if (this.$buttons) {
+                this.$buttons.off();
+            }
+        },
+        /**
+         * Hook called when coming back to this widget using the breadcrumbs.
+         *
+         * @override
+         */
+        do_show: function () {
+            this._super.apply(this, arguments);
+            this._updateControlPanel();
         },
 
         // Private
@@ -75,6 +100,16 @@ odoo.define('awesome_tshirt.dashboard', function(require) {
                 views: [[false, 'list'], [false, 'form']],
             });
         },
+        /**
+         * Renders the buttons to put in the ControlPanel and binds event handlers
+         * on them. Sets this.$buttons.
+         */
+        _renderButtons: function () {
+            this.$buttons = $(qweb.render('AwesomeDashboard.Buttons'));
+            this.$buttons.on('click', '.o_new_orders_btn', this._onOpenNewOrders.bind(this));
+            this.$buttons.on('click', '.o_customers_btn', this._onOpenCustomers.bind(this));
+            this.$buttons.on('click', '.o_cancelled_orders_btn', this._onOpenCancelledOrders.bind(this));
+        },
 
         /**
          * Renders a PieChart widget.
@@ -85,6 +120,18 @@ odoo.define('awesome_tshirt.dashboard', function(require) {
             var chart = new ChartWidget(this, this.stats.orders_by_size);
             this.$('.o_fancy_chart').empty();
             return chart.appendTo(this.$('.o_fancy_chart'));
+        },
+        /**
+        * Puts the buttons in the control panel.
+        *
+        * @private
+        */
+        _updateControlPanel: function () {
+            this.update_control_panel({
+                cp_content: {
+                   $buttons: this.$buttons,
+                },
+            });
         },
 
         // Handlers
@@ -127,6 +174,7 @@ odoo.define('awesome_tshirt.dashboard', function(require) {
                 domain: [['size', '=', ev.data.size]],
             });
         },
+
     });
 
     core.action_registry.add('awesome_tshirt.dashboard', Dashboard);
