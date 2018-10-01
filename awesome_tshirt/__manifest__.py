@@ -20,6 +20,6 @@
     ],
     'qweb': [
         'static/src/xml/widget_counter.xml',
-        'static/src/xml/widget_actions.xml',
+        'static/src/xml/awesome_dashboard.xml',
     ],
 }
