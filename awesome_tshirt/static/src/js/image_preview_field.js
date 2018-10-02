@@ -13,11 +13,12 @@ var FieldImagePreview = FieldChar.extend({
     _renderReadonly: function () {
         this._super.apply(this, arguments);
 
-        var value = this.$('.o_value');
-        console.log(value);
+        if (this.value) {
+            this.$el.html($('<img>', {src: this.value}));
+        }
     },
 });
 
-field_registry.add('image-preview', FieldImagePreview);
+field_registry.add('image_preview', FieldImagePreview);
 
 });
