@@ -5,8 +5,8 @@ odoo.define('awesome_tshirt.home_menu_message', function(require) {
     HomeMenu.include({
         render: function () {
             this._super();
-            var message = $(qweb.render('awesome_tshirt.home_menu_message', {
-            })).insertBefore(this.$('.o_menu_search'));
+            var message = $(qweb.render('awesome_tshirt.home_menu_message'
+            )).insertBefore(this.$('.o_menu_search'));
         },
     });
 });
