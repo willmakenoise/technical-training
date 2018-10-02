@@ -1,4 +1,4 @@
-odoo.define('awesome_tshirt.image_preview', function (require) {
+odoo.define('awesome_tshirt.ImagePreview', function (require) {
 "use strict";
 
 var FieldChar = require('web.basic_fields').FieldChar;
@@ -7,7 +7,7 @@ var core = require('web.core');
 var field_registry = require('web.field_registry');
 // var _t = core._t;
 
-var FieldImagePreview = FieldChar.extend({
+var ImagePreview = FieldChar.extend({
     // template: 'WidgetWebsiteButton',
 
     _renderReadonly: function () {
@@ -19,6 +19,6 @@ var FieldImagePreview = FieldChar.extend({
     },
 });
 
-field_registry.add('image_preview', FieldImagePreview);
+field_registry.add('image_preview', ImagePreview);
 
 });

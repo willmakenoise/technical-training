@@ -6,6 +6,7 @@
         <script type="text/javascript" src="/awesome_tshirt/static/src/js/awesome_dashboard.js"></script>
         <script type="text/javascript" src="/awesome_tshirt/static/src/js/widget_mycounter.js"></script>
         <script type="text/javascript" src="/awesome_tshirt/static/src/js/chart_widget.js"></script>
+        <script type="text/javascript" src="/awesome_tshirt/static/src/js/image_preview_widget.js"/>
         <!-- <script type="text/javascript" src="/awesome_tshirt/static/lib/chart.js/Chart.js"></script> -->
     </xpath>
 </template>
