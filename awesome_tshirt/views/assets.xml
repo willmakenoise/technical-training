@@ -10,6 +10,7 @@
         <script type="text/javascript" src="/awesome_tshirt/static/src/js/image_preview_widget.js"/>
         <script type="text/javascript" src="/awesome_tshirt/static/src/js/late_widget.js"/>
         <script type="text/javascript" src="/awesome_tshirt/static/src/js/warning_widget.js"/>
+        <script type="text/javascript" src="/awesome_tshirt/static/src/js/order_form.js"/>
     </xpath>
 </template>
 </odoo>
