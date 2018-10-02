@@ -16,18 +16,18 @@ var ImagePreview = FieldChar.extend({
         if (this.isSet()) {
             this.$el.html($('<img>', {src: this.value}));
         }
-        // else {
-        //     console.log('Its not set');
-        //     console.log(this.$el.text)
-        //     console.log(this)
-        //     this.$el.text(_t('Missing T-Shirt Design')).toggleClass('text-danger');
-        // }
+        else {
+            console.log('Its not set');
+            console.log(this.$el.text);
+            console.log(this);
+            this.$el.text(_t('Missing T-Shirt Design')).toggleClass('text-danger');
+        }
 
     },
 
-    // isSet: function () {
-    //
-    // }
+    isSet: function () {
+        return true;
+    }
 
 });
 
