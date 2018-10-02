@@ -17,7 +17,7 @@ var ImagePreview = FieldChar.extend({
             this.$el.html($('<img>', {src: this.value}));
         }
         else {
-            this.$('.o_value').html(_t('Missing T-Shirt Design')).toggleClass('text-danger');
+            this.$el.text(_t('Missing T-Shirt Design')).toggleClass('text-danger');
         }
 
     },
