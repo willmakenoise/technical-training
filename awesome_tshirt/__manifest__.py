@@ -22,5 +22,6 @@
         'static/src/xml/widget_counter.xml',
         'static/src/xml/awesome_dashboard.xml',
         'static/src/xml/warning_widget.xml',
+        'static/src/xml/customer_form.xml',
     ],
 }
