@@ -11,12 +11,8 @@ odoo.define('awesome_tshirt.HomeMenu', function(require) {
         willStart: function() {
             var self = this;
             var superDef = this._super.apply(this, arguments);
-            var messageDef = this._rpc({
-                route: '/awesome_tshirt/bafienistalkingtoyou',
-            }).then(function(message) {
-                self.message = message;
-            });
-            return $.when(superDef, messageDef);
+            self.message = session.message;
+            return $.when(superDef);
         },
         //--------------------------------------------------------------------------
         // Private
@@ -29,13 +25,10 @@ odoo.define('awesome_tshirt.HomeMenu', function(require) {
             this._super.apply(this, arguments);
             var $message = $('<div>', {
                 class: 'p-2 alert-warning o_custom_message',
-            }).text(session.message);
+            }).text(this.message);
             $('<i class="fa fa-eye"></i><i class="fa fa-eye"></i>').appendTo($message);
             this.$('.o_custom_message').remove();
             this.$el.prepend($message);
-        },
-        _get_message: function() {
-
         },
     });
 });
