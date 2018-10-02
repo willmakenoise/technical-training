@@ -1,12 +1,24 @@
-odoo.define('awesome_tshirt.home_menu_message', function(require) {
+odoo.define('awesome_tshirt.HomeMenu', function(require) {
+    "use strict";
+    var core = require('web.core');
     var HomeMenu = require('web_enterprise.HomeMenu');
-    var qweb = require('core.qweb');
-
+    var _t = core._t;
     HomeMenu.include({
-        render: function () {
-            this._super();
-            var message = $(qweb.render('awesome_tshirt.home_menu_message'
-            )).insertBefore(this.$('.o_menu_search'));
+        //--------------------------------------------------------------------------
+        // Private
+        //--------------------------------------------------------------------------
+        /**
+         * @override
+         * @private
+         */
+        _render: function() {
+            this._super.apply(this, arguments);
+            var $message = $('<div>', {
+                class: 'p-2 alert-warning o_custom_message',
+            }).text(_t("Bafien Ckinpaers is watching you!"));
+            $('<i class="fa fa-eye"></i><i class="fa fa-eye"></i>').appendTo($message);
+            this.$('.o_custom_message').remove();
+            this.$el.prepend($message);
         },
     });
 });

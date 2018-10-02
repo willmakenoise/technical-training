@@ -24,6 +24,5 @@
         'static/src/xml/warning_widget.xml',
         'static/src/xml/form_view.xml',
         'static/src/xml/quick_order_navigation.xml',
-        'static/src/xml/home_menu_message.xml'
     ],
 }
