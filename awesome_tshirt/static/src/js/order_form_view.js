@@ -47,7 +47,7 @@ odoo.define('awesome_tshirt.order_form_view', function(require) {
                     raw: true
                 });
                 var disabled = this.mode === 'edit' && !state.res_id;
-                var primary = state.data.customer_id && state.data.state === 'printed';
+                var primary = state.data.customer_id && state.data.state !== 'printed';
                 this.$buttons.find('.o_print_label')
                     .toggleClass('btn-primary', primary)
                     .toggleClass('btn-secondary', !primary)
