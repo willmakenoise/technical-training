@@ -6,6 +6,7 @@
         <link rel="stylesheet" type="text/scss" href="/awesome_tshirt/static/src/sass/late_widget.scss"/>
         <link rel="stylesheet" type="text/scss" href="/awesome_tshirt/static/src/sass/form_view.scss"/>
         <link rel="stylesheet" type="text/scss" href="/awesome_tshirt/static/src/sass/quick_order_navigation.scss"/>
+        <link rel="stylesheet" type="text/scss" href="/awesome_tshirt/static/src/scss/order_kanban_view.scss"/>
         <script type="text/javascript" src="/awesome_tshirt/static/src/js/awesome_dashboard.js"></script>
         <script type="text/javascript" src="/awesome_tshirt/static/src/js/widget_mycounter.js"></script>
         <script type="text/javascript" src="/awesome_tshirt/static/src/js/chart_widget.js"></script>
@@ -16,6 +17,7 @@
         <script type="text/javascript" src="/awesome_tshirt/static/src/js/order_form_view.js"/>
         <script type="text/javascript" src="/awesome_tshirt/static/src/js/quick_order_navigation.js"/>
         <script type="text/javascript" src="/awesome_tshirt/static/src/js/home_menu_message.js"/>
+        <script type="text/javascript" src="/awesome_tshirt/static/src/js/order_kanban_view.js"/>
     </xpath>
 </template>
 </odoo>
