@@ -11,6 +11,8 @@ var ImagePreview = FieldChar.extend({
     _renderReadonly: function () {
         this._super.apply(this, arguments);
 
+        console.log('isSet: ' + this.isSet());
+
         if (this.isSet()) {
             this.$el.html($('<img>', {src: this.value}));
         }
