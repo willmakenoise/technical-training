@@ -8,8 +8,6 @@ var field_registry = require('web.field_registry');
 var _t = core._t;
 
 var ImagePreview = FieldChar.extend({
-    // template: 'WidgetWebsiteButton',
-
     _renderReadonly: function () {
         this._super.apply(this, arguments);
 
@@ -17,7 +15,7 @@ var ImagePreview = FieldChar.extend({
             this.$el.html($('<img>', {src: this.value}));
         }
         else {
-            this.$el.html(_t('Missing T-Shirt Design')).toggleClass('text-danger');
+            this.$('.o_value').html(_t('Missing T-Shirt Design')).toggleClass('text-danger');
         }
 
     },
